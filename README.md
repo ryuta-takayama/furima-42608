@@ -28,7 +28,7 @@
 | item_explain              | text       | null: false                                                             |
 | category_id               | integer    | null: false                                                             |
 | item_condition_id         | integer    | null: false                                                             |
-| shipping_fee_burden_id    | integer    |                                                                         |
+| shipping_fee_burden_id    | integer    | null: false                                                             |
 | prefecture_id             | integer    | null: false                                                             |
 | shipping_lead_time_id     | integer    | null: false                                                             |
 | price                     | integer    | null: false, check: "price >= 300 AND price <= 9999999"                 |
@@ -61,17 +61,15 @@
 | Column        | Type       | Options                                      |
 |---------------|------------|-------------------------------------------   |
 | order         | references | null: false, foreign_key: true, unique: true |
-| postal_code   | string     | null: false                               |
-| prefecture    | references | null: false, foreign_key: true            |
-| city          | string     | null: false                               |
-| address_line  | string     | null: false                               |
-| building_name | string     |                                          |
-| phone_number  | string     | null: false                               |
+| postal_code   | string     | null: false                                  |
+| prefecture_id | integer    | null: false                                  |
+| city          | string     | null: false                                  |
+| address_line  | string     | null: false                                  |
+| building_name | string     |                                              |
+| phone_number  | string     | null: false                                  |
 
 **Association**
 - belongs_to :order  
-- belongs_to :prefecture  
-
 ---
 
 
