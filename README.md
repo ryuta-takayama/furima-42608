@@ -5,7 +5,6 @@
 
 | Column             | Type    | Options                              |
 |--------------------|---------|--------------------------------------|
-| id                 | integer | primary_key                          |
 | nickname           | string  | null: false                          |
 | email              | string  | null: false, unique: true            |
 | encrypted_password | string  | null: false                          |
@@ -23,28 +22,22 @@
 
 ## items
 
-| Column                 | Type       | Options                                                                 |
-|------------------------|------------|-------------------------------------------------------------------------|
-| id                     | integer    | primary_key                                                             |
-| item_name              | string     | null: false                                                             |
-| item_explain           | text       | null: false                                                             |
-| category_id            | references | null: false, foreign_key: true                                          |
-| item_condition_id      | references | null: false, foreign_key: true                                          |
-| shipping_fee_burden_id | references | null: false, foreign_key: true                                          |
-| prefecture_id          | references | null: false, foreign_key: true                                          |
-| shipping_lead_time_id  | references | null: false, foreign_key: true                                          |
-| price                  | integer    | null: false, check: "price >= 300 AND price <= 9999999"                 |
-| user_id                | references | foreign_key: true                                                       |
+| Column                    | Type       | Options                                                                 |
+|------------------------   |------------|-------------------------------------------------------------------------|
+| item_name                 | string     | null: false                                                             |
+| item_explain              | text       | null: false                                                             |
+| category_id               | integer    | null: false                                                             |
+| item_condition_id         | integer    | null: false                                                             |
+| shipping_fee_burden_id    | integer    |                                                                         |
+| prefecture_id             | integer    | null: false                                                             |
+| shipping_lead_time_id     | integer    | null: false                                                             |
+| price                     | integer    | null: false, check: "price >= 300 AND price <= 9999999"                 |
+| user                      | references | foreign_key: true                                                       |
 
 > 画像は Active Storage を使用（`has_one_attached :image`、モデルで必須バリデーション）
 
 **Association**
-- belongs_to :user  
-- belongs_to :category  
-- belongs_to :item_condition  
-- belongs_to :shipping_fee_burden  
-- belongs_to :prefecture  
-- belongs_to :shipping_lead_time  
+- belongs_to :user   
 - has_one :order  
 
 ---
@@ -53,9 +46,8 @@
 
 | Column  | Type       | Options                               |
 |---------|------------|---------------------------------------|
-| id      | integer    | primary_key                           |
-| user_id | references | null: false, foreign_key: true        |
-| item_id | references | null: false, foreign_key: true, unique: true |
+| user    | references | null: false, foreign_key: true        |
+| item    | references | null: false, foreign_key: true, unique: true |
 
 **Association**
 - belongs_to :user  
@@ -66,12 +58,11 @@
 
 ## shipping_addresses
 
-| Column        | Type       | Options                                   |
-|---------------|------------|-------------------------------------------|
-| id            | integer    | primary_key                               |
-| order_id      | references | null: false, foreign_key: true, unique: true |
+| Column        | Type       | Options                                      |
+|---------------|------------|-------------------------------------------   |
+| order         | references | null: false, foreign_key: true, unique: true |
 | postal_code   | string     | null: false                               |
-| prefecture_id | references | null: false, foreign_key: true            |
+| prefecture    | references | null: false, foreign_key: true            |
 | city          | string     | null: false                               |
 | address_line  | string     | null: false                               |
 | building_name | string     |                                          |
@@ -83,66 +74,6 @@
 
 ---
 
-## categories (master)
-
-| Column | Type    | Options                     |
-|--------|---------|-----------------------------|
-| id     | integer | primary_key                 |
-| name   | text    | null: false, unique: true   |
-
-**Association**
-- has_many :items  
-
----
-
-## item_conditions (master)
-
-| Column | Type    | Options                     |
-|--------|---------|-----------------------------|
-| id     | integer | primary_key                 |
-| name   | text    | null: false, unique: true   |
-
-**Association**
-- has_many :items  
-
----
-
-## shipping_fee_burdens (master)
-
-| Column | Type    | Options                     |
-|--------|---------|-----------------------------|
-| id     | integer | primary_key                 |
-| name   | text    | null: false, unique: true   |
-
-**Association**
-- has_many :items  
-
----
-
-## prefectures (master)
-
-| Column | Type    | Options                     |
-|--------|---------|-----------------------------|
-| id     | integer | primary_key                 |
-| name   | text    | null: false, unique: true   |
-
-**Association**
-- has_many :items  
-- has_many :shipping_addresses  
-
----
-
-## shipping_lead_times (master)
-
-| Column | Type    | Options                     |
-|--------|---------|-----------------------------|
-| id     | integer | primary_key                 |
-| name   | text    | null: false, unique: true   |
-
-**Association**
-- has_many :items  
-
----
 
 ## Index / Constraint Hints
 
