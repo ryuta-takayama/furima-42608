@@ -31,8 +31,8 @@
 | shipping_fee_burden_id    | integer    | null: false                                                             |
 | prefecture_id             | integer    | null: false                                                             |
 | shipping_lead_time_id     | integer    | null: false                                                             |
-| price                     | integer    | null: false, check: "price >= 300 AND price <= 9999999"                 |
-| user                      | references | foreign_key: true                                                       |
+| price                     | integer    | null: false                                                             |
+| user                      | references | null: false, foreign_key: true                                          |
 
 > 画像は Active Storage を使用（`has_one_attached :image`、モデルで必須バリデーション）
 
