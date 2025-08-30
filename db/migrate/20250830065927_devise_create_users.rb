@@ -5,7 +5,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
     create_table :users do |t|
       ## Database authenticatable
       t.string :nickname,           null: false
-      t.string :email,              null: false, unique: true
+      t.string :email,              null: false
       t.string :encrypted_password, null: false
       t.string :first_name,         null: false
       t.string :last_name,          null: false
@@ -19,7 +19,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[7.1]
 
       ## Rememberable
       t.datetime :remember_created_at
-      
+
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
       # t.datetime :current_sign_in_at
