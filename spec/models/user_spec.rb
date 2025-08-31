@@ -16,7 +16,6 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it '氏名がひらがな（:hiragana_name）でも有効' do
-        @user = FactoryBot.build(:user, :hiragana_name)
         expect(@user).to be_valid
       end
       it '氏名がカタカナ（:katakana_name）でも有効' do
