@@ -7,7 +7,7 @@ class Item < ApplicationRecord
   validates :shipping_fee_burden_id, presence: true
   validates :prefecture_id, presence: true
   validates :shipping_lead_time_id, presence: true
-  validates :price, presence: true
+  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "must be between ¥300 and ¥9,999,999" }
   validates :user_id, presence: true
 
   belongs_to :user
