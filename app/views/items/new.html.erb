@@ -8,7 +8,7 @@
     <%= form_with model: @item, url: items_path, local: true do |f| %>
 
     
-    <%= render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: @item %>
     
 
     <%# 商品画像 %>
@@ -55,7 +55,7 @@
           商品の状態
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:item_condition_id, Item_condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
+        <%= f.collection_select(:item_condition_id, ItemCondition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
       </div>
     </div>
     <%# /商品の詳細 %>
@@ -71,7 +71,7 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:shipping_fee_burden_id, Shipping_fee_burden.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+        <%= f.collection_select(:shipping_fee_burden_id, ShippingFeeBurden.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
@@ -81,7 +81,7 @@
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:shipping_lead_time_id, Shipping_lead_time.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:shipping_lead_time_id, ShippingLeadTime.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
       </div>
     </div>
     <%# /配送について %>
@@ -138,7 +138,7 @@
     <%# /注意書き %>
     <%# 下部ボタン %>
     <div class="sell-btn-contents">
-      <%= f.submit "出品する" ,class:"sell-btn" %>
+      <%= f.submit "出品する" , class:"sell-btn" %>
       <%=link_to 'もどる', root_path, class:"back-btn" %>
     </div>
     <%# /下部ボタン %>
