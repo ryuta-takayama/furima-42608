@@ -7,8 +7,7 @@ class Item < ApplicationRecord
   validates :shipping_fee_burden_id, presence: true
   validates :prefecture_id, presence: true
   validates :shipping_lead_time_id, presence: true
-  validates :price, presence: true, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "must be between ¥300 and ¥9,999,999" }, format: { with: /\A[0-9]+\z/ }
-  validates :user_id, presence: true
+  validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: "must be between ¥300 and ¥9,999,999" }
 
   belongs_to :user
   has_one_attached :image
@@ -31,5 +30,5 @@ class Item < ApplicationRecord
     errors.add(:image, "must be attached") unless image.attached?
   end
 
-  
+
 end
