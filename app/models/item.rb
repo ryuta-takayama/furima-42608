@@ -12,6 +12,7 @@ class Item < ApplicationRecord
 
   belongs_to :user
   has_one_attached :image
+  validate :image_must_be_attached
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
@@ -24,4 +25,11 @@ class Item < ApplicationRecord
   validates :shipping_fee_burden_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
   validates :shipping_lead_time_id, numericality: { other_than: 1, message: "can't be blank" }
+
+  private
+  def image_must_be_attached
+    errors.add(:image, "must be attached") unless image.attached?
+  end
+
+  
 end
