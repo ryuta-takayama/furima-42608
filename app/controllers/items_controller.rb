@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   
   def index
     @items = Item.includes(:user).order(created_at: :desc)
+     if Rails.env.development? && params[:simulate_empty].present?
+    @items = Item.none
+   end
   end
 
   def create 
