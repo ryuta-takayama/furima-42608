@@ -9,4 +9,11 @@ class OrdersController < ApplicationController
     @order_shipping_address = OrderShippingAddress.new(order_params)
 
   end
+
+  private
+
+  
+   def order_params
+    params.require(:order_shipping_address).permit(:postal_code, :prefecture_id, :city, :address_line, :building_name, :phone_number).merge(user_id: current_user.id, item_id: params[:item_id])
+   end
 end
