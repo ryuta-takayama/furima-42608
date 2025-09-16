@@ -24,6 +24,61 @@ RSpec.describe OrderShippingAddress, type: :model do
         @order_shipping_address.valid?
         expect(@order_shipping_address.errors.full_messages).to include("Postal code can't be blank")
       end
+      it 'postal_codeが「3桁ハイフン4桁」の半角文字列でないと登録できない' do
+        @order_shipping_address.postal_code = '1234567'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Postal code is invalid")
+      end
+      it 'prefecture_idが1では登録できない' do
+        @order_shipping_address.prefecture_id = 1
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Prefecture can't be blank")
+      end
+      it 'cityが空では登録できない' do
+        @order_shipping_address.city = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("City can't be blank")
+      end
+      it 'address_lineが空では登録できない' do
+        @order_shipping_address.address_line = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Address line can't be blank")
+      end
+      it 'phone_numberが空では登録できない' do
+        @order_shipping_address.phone_number = ''
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Phone number can't be blank")
+      end
+      it 'phone_numberが9桁以下では登録できない' do
+        @order_shipping_address.phone_number = '090123456'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'phone_numberが12桁以上では登録できない' do
+        @order_shipping_address.phone_number = '090123456789'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'phone_numberが半角数字でないと登録できない' do
+        @order_shipping_address.phone_number = '０９０１２３４５６７８'
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Phone number is invalid")
+      end
+      it 'user_idが空では登録できない' do
+        @order_shipping_address.user_id = nil
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空では登録できない' do
+        @order_shipping_address.item_id = nil
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Item can't be blank")
+      end
+      it 'tokenが空では登録できない' do
+        @order_shipping_address.token = nil
+        @order_shipping_address.valid?
+        expect(@order_shipping_address.errors.full_messages).to include("Token can't be blank")
+      end
     end
   end
 
