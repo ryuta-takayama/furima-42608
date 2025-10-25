@@ -82,32 +82,15 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
-    airbrussh (1.5.3)
-      sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.3)
     base64 (0.3.0)
     bcrypt (3.1.20)
-    benchmark (0.5.0)
-    bigdecimal (3.3.1)
+    benchmark (0.4.1)
+    bigdecimal (3.2.2)
     bindex (0.8.1)
     bootsnap (1.18.6)
       msgpack (~> 1.2)
     builder (3.3.0)
-    capistrano (3.19.2)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-bundler (2.1.1)
-      capistrano (~> 3.1)
-    capistrano-rails (1.7.0)
-      capistrano (~> 3.1)
-      capistrano-bundler (>= 1.1, < 3)
-    capistrano-rbenv (2.2.0)
-      capistrano (~> 3.1)
-      sshkit (~> 1.3)
-    capistrano3-unicorn (0.2.1)
-      capistrano (~> 3.1, >= 3.1.0)
     capybara (3.40.0)
       addressable
       matrix
@@ -119,7 +102,7 @@ GEM
       xpath (~> 3.2)
     coderay (1.1.3)
     concurrent-ruby (1.3.5)
-    connection_pool (2.5.4)
+    connection_pool (2.5.3)
     crass (1.0.6)
     date (3.4.1)
     debug (1.11.0)
@@ -134,19 +117,18 @@ GEM
     diff-lcs (1.6.2)
     domain_name (0.6.20240107)
     drb (2.2.3)
-    erb (5.1.1)
+    erb (5.0.2)
     erubi (1.13.1)
     factory_bot (6.5.5)
       activesupport (>= 6.1.0)
-    factory_bot_rails (6.5.1)
+    factory_bot_rails (6.5.0)
       factory_bot (~> 6.5)
       railties (>= 6.1.0)
     faker (3.5.2)
       i18n (>= 1.8.11, < 2)
-    ffi (1.17.2)
     ffi (1.17.2-x86_64-linux-gnu)
     gimei (1.5.1)
-    globalid (1.3.0)
+    globalid (1.2.1)
       activesupport (>= 6.1)
     gon (6.5.0)
       actionpack (>= 3.0.20)
@@ -154,7 +136,7 @@ GEM
       multi_json
       request_store (>= 1.0)
     http-accept (1.7.0)
-    http-cookie (1.1.0)
+    http-cookie (1.0.8)
       domain_name (~> 0.5)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
@@ -173,7 +155,7 @@ GEM
     jbuilder (2.14.1)
       actionview (>= 7.0.0)
       activesupport (>= 7.0.0)
-    json (2.15.1)
+    json (2.13.2)
     kgio (2.11.4)
     language_server-protocol (3.17.0.5)
     logger (1.7.0)
@@ -185,46 +167,35 @@ GEM
       net-imap
       net-pop
       net-smtp
-    marcel (1.1.0)
+    marcel (1.0.4)
     matrix (0.4.3)
     method_source (1.1.0)
     mime-types (3.7.0)
       logger
       mime-types-data (~> 3.2025, >= 3.2025.0507)
-    mime-types-data (3.2025.0924)
+    mime-types-data (3.2025.0909)
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
-    minitest (5.26.0)
     minitest (5.25.5)
     msgpack (1.8.0)
     multi_json (1.17.0)
     mutex_m (0.3.0)
-    mysql2 (0.5.7)
-      bigdecimal
-    net-imap (0.5.12)
+    mysql2 (0.5.6)
+    net-imap (0.5.9)
       date
       net-protocol
     net-pop (0.1.2)
       net-protocol
     net-protocol (0.2.2)
       timeout
-    net-scp (4.1.0)
-      net-ssh (>= 2.6.5, < 8.0.0)
-    net-sftp (4.0.0)
-      net-ssh (>= 5.0.0, < 8.0.0)
     net-smtp (0.5.1)
       net-protocol
-    net-ssh (7.3.0)
     netrc (0.11.0)
     nio4r (2.7.4)
     nokogiri (1.18.9-x86_64-linux-gnu)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
       racc (~> 1.4)
     orm_adapter (0.5.0)
-    ostruct (0.6.3)
     parallel (1.27.0)
     parser (3.3.9.0)
       ast (~> 2.4.1)
@@ -232,10 +203,11 @@ GEM
     payjp (1.1.7)
       base64
       rest-client (~> 2.0)
+    pg (1.6.1-x86_64-linux)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
-    prism (1.6.0)
+    prism (1.4.0)
     pry (0.15.2)
       coderay (~> 1.1)
       method_source (~> 1.0)
@@ -245,10 +217,10 @@ GEM
       date
       stringio
     public_suffix (6.0.2)
-    puma (7.1.0)
+    puma (6.6.1)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.3)
+    rack (3.2.0)
     rack-session (2.1.1)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -288,30 +260,29 @@ GEM
     rainbow (3.1.1)
     raindrops (0.20.1)
     rake (13.3.0)
-    rdoc (6.15.0)
+    rdoc (6.14.2)
       erb
       psych (>= 4.0.0)
-      tsort
-    regexp_parser (2.11.3)
+    regexp_parser (2.11.2)
     reline (0.6.2)
       io-console (~> 0.5)
     request_store (1.7.0)
       rack (>= 1.4)
-    responders (3.2.0)
-      actionpack (>= 7.0)
-      railties (>= 7.0)
+    responders (3.1.1)
+      actionpack (>= 5.2)
+      railties (>= 5.2)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
-    rexml (3.4.4)
-    rspec-core (3.13.6)
+    rexml (3.4.1)
+    rspec-core (3.13.5)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-mocks (3.13.6)
+    rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
     rspec-rails (7.1.1)
@@ -322,7 +293,7 @@ GEM
       rspec-expectations (~> 3.13)
       rspec-mocks (~> 3.13)
       rspec-support (~> 3.13)
-    rspec-support (3.13.6)
+    rspec-support (3.13.5)
     rubocop (1.71.2)
       json (~> 2.3)
       language_server-protocol (>= 3.17.0)
@@ -333,16 +304,16 @@ GEM
       rubocop-ast (>= 1.38.0, < 2.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 2.4.0, < 4.0)
-    rubocop-ast (1.47.1)
+    rubocop-ast (1.46.0)
       parser (>= 3.3.7.2)
       prism (~> 1.4)
     ruby-progressbar (1.13.0)
     ruby-vips (2.2.5)
       ffi (~> 1.12)
       logger
-    rubyzip (3.2.0)
+    rubyzip (3.0.1)
     securerandom (0.4.1)
-    selenium-webdriver (4.37.0)
+    selenium-webdriver (4.35.0)
       base64 (~> 0.2)
       logger (~> 1.4)
       rexml (~> 3.2, >= 3.2.5)
@@ -356,27 +327,19 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
-    sshkit (1.24.0)
-      base64
-      logger
-      net-scp (>= 1.1.2)
-      net-sftp (>= 2.1.2)
-      net-ssh (>= 2.8.0)
-      ostruct
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.7)
     thor (1.4.0)
     timeout (0.4.3)
-    tsort (0.2.0)
-    turbo-rails (2.0.17)
+    turbo-rails (2.0.16)
       actionpack (>= 7.1.0)
       railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    unicode-display_width (3.2.0)
-      unicode-emoji (~> 4.1)
-    unicode-emoji (4.1.0)
+    unicode-display_width (3.1.5)
+      unicode-emoji (~> 4.0, >= 4.0.4)
+    unicode-emoji (4.0.4)
     unicorn (6.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
@@ -397,16 +360,11 @@ GEM
     zeitwerk (2.7.3)
 
 PLATFORMS
-  ruby
   x86_64-linux
+
 DEPENDENCIES
   active_hash
   bootsnap
-  capistrano
-  capistrano-bundler
-  capistrano-rails
-  capistrano-rbenv
-  capistrano3-unicorn
   capybara
   debug
   devise
@@ -420,6 +378,7 @@ DEPENDENCIES
   mini_magick
   mysql2 (~> 0.5)
   payjp
+  pg
   pry-rails
   puma (>= 5.0)
   rails (~> 7.1.0)
